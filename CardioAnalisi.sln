@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardioLibrary", "CardioLibrary\CardioLibrary.csproj", "{9A81FA43-04A3-4E08-B3F2-7AAF919849CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardioLibrary", "CardioLibrary\CardioLibrary.csproj", "{9A81FA43-04A3-4E08-B3F2-7AAF919849CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCardio_Test", "DataCardio_Test\DataCardio_Test.csproj", "{D24BF313-9129-47C0-B811-BF6792390718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCardio_Test", "DataCardio_Test\DataCardio_Test.csproj", "{D24BF313-9129-47C0-B811-BF6792390718}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{776AA3BD-FB5D-430C-8FC3-F3F9F9811306}"
+	ProjectSection(SolutionItems) = preProject
+		dati_battiti_cardiaci_in_un_giorno.txt = dati_battiti_cardiaci_in_un_giorno.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
