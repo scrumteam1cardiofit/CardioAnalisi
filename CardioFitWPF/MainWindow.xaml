@@ -1,0 +1,18 @@
+﻿<Window x:Class="CardioFitWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CardioFitWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Background="Red" Height="550" Width="900">
+    <Grid>
+        <Label x:Name="CardioFit" Content="CardioFit" HorizontalAlignment="Center" FontFamily="candara" VerticalAlignment="Top" FontSize="80" Background="#FFFBFB19" Margin="0,109,0,0"/>
+        <Button x:Name="btnBpmTraining" Content="Battiti Training" HorizontalAlignment="Left" Margin="26,297,0,0" VerticalAlignment="Top" FontSize="35" Click="btnBpmTraining_Click"/>
+        <Button x:Name="btnConsumoCalorie" Content="Consumo Calorie" HorizontalAlignment="Left" Margin="26,458,0,0" VerticalAlignment="Top" FontSize="35" Click="btnConsumoCalorie_Click"/>
+        <Button x:Name="btnSituazioneCardiaca" Content="Situazione Cardiaca" HorizontalAlignment="Left" Margin="560,297,0,0" VerticalAlignment="Top" FontSize="35" Click="btnSituazioneCardiaca_Click"/>
+        <Button x:Name="btnCalorieGenere" Content="Calorie Genere" HorizontalAlignment="Left" Margin="315,364,0,0" VerticalAlignment="Top" FontSize="35" RenderTransformOrigin="-0.097,0.452" Click="btnCalorieGenere_Click"/>
+        <Button x:Name="btnFunzioniSpeciali" Content="Funzioni Speciali" HorizontalAlignment="Left" Margin="560,458,0,0" VerticalAlignment="Top" FontSize="35" Click="btnFunzioniSpeciali_Click"/>
+
+    </Grid>
+</Window>

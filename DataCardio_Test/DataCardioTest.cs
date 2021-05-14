@@ -26,5 +26,35 @@ namespace DataCardio_Test
             string resp = DataCardio.CalorieConsumateCorsaCamminata(km, peso);
             Assert.AreEqual(valore_aspettato, resp);
         }
+        [TestMethod]
+        public void CalorieUomo_Test()
+        {
+            int f = 70;
+            float p = 90;
+            uint eta = 20;
+            float t = 60;
+            float risp = DataCardio.CalorieBruciateUomo(f, p, eta, t);
+            float valore_aspettato = ;
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void CalorieDonna_Test()
+        {
+            int f = 75;
+            float p = 65;
+            uint eta = 30;
+            float t = 60;
+            float risp = DataCardio.CalorieBruciateUomo(f, p, eta, t);
+            float valore_aspettato = ;
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void SituazioneCardiaca_Test()
+        {
+            int frequenza = 0;
+            string valore_aspettato = "valore inserito non valido!!";
+            string resp = DataCardio.SituazioneCardiaca(frequenza);
+            Assert.AreEqual(valore_aspettato, resp);
+        }
     }
 }

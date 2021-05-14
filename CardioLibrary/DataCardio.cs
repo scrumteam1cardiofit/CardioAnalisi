@@ -11,20 +11,12 @@ namespace CardioLibrary
 
         public static string BattitiMinimiMassimiinTraining(int eta)
         {
-            try
-            {
-                int freq_max_normale = 220 - eta;
-                int minimo_perc = 70;
-                int max_perc = 90;
-                float freq_min_allenamento = (float)(minimo_perc / freq_max_normale) * 100;
-                //freq_min_allenamento = (float)Math.Round(freq_min_allenamento, 2);
-                float freq_max_allenamento = (max_perc / freq_max_normale) * 100;
-                return $"La tua frequenza cardiaca in un buon allenamento deve essere compresa tra {freq_min_allenamento} e {freq_max_allenamento}.";
-            }
-            catch (Exception)
-            {
-                return "Inserire dati validi.";
-            }
+            int freq_max_normale = 220 - eta;
+            int minimo_perc = 70;
+            int max_perc = 90;
+            float freq_min_allenamento = (float)(minimo_perc / freq_max_normale) * 100;
+            float freq_max_allenamento = (max_perc / freq_max_normale) * 100;
+            return $"La tua frequenza cardiaca in un buon allenamento deve essere compresa tra {freq_min_allenamento} e {freq_max_allenamento}.";
         }
         public static string CalorieConsumateCorsaCamminata(double km, double peso)
         {
@@ -33,14 +25,23 @@ namespace CardioLibrary
             string risultato = $"In corsa consumi: {corsa} KCal, In camminata consumi: {camminata} KCal.";
             return risultato;
         }
-
+        public static float CalorieBruciateUomo(int f, float p, uint eta, float t)
+        {
+            float caloriebruciate = (float)((eta * 0.2017) + (p * 0.199) + (f * 0.6309) - 55.0969);
+            return caloriebruciate;
+        }
+        public static float CalorieBruciateDonna(int f, float p, uint eta, float t)
+        {
+            float caloriebruciate = (float)((eta * 0.074) + (p * 0.126) + (f * 0.4472) - 20.4022);
+            return caloriebruciate;
+        }
         public static string SituazioneCardiaca(int frequenza)
         {
             if (frequenza < 5)
             {
                 return "valore inserito non valido!!";
             }
-            if (frequenza < 60 && frequenza >= 5)
+            else if (frequenza < 60 && frequenza >= 5)
             {
                 return "Bradicardia";
             }
