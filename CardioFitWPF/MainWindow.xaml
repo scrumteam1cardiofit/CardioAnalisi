@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardioFitWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Background="Red" Height="550" Width="900">
+        Title="CardioFit" Background="Red" Height="550" Width="900">
     <Grid>
         <Label x:Name="CardioFit" Content="CardioFit" HorizontalAlignment="Center" FontFamily="candara" VerticalAlignment="Top" FontSize="80" Background="#FFFBFB19" Margin="0,109,0,0"/>
         <Button x:Name="btnBpmTraining" Content="Battiti Training" HorizontalAlignment="Left" Margin="26,297,0,0" VerticalAlignment="Top" FontSize="35" Click="btnBpmTraining_Click"/>

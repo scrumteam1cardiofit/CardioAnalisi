@@ -34,8 +34,8 @@ namespace DataCardio_Test
             uint eta = 20;
             float t = 60;
             float risp = DataCardio.CalorieBruciateUomo(f, p, eta, t);
-            //float valore_aspettato = ;
-            //Assert.AreEqual(valore_aspettato, risp);
+            float valore_aspettato = (float)157.8886233269598;
+            Assert.AreEqual(valore_aspettato, risp);
         }
         [TestMethod]
         public void CalorieDonna_Test()
@@ -45,8 +45,8 @@ namespace DataCardio_Test
             uint eta = 30;
             float t = 60;
             float risp = DataCardio.CalorieBruciateUomo(f, p, eta, t);
-            //float valore_aspettato = ;
-            //Assert.AreEqual(valore_aspettato, risp);
+            float valore_aspettato = (float)160.7065;
+            Assert.AreEqual(valore_aspettato, risp);
         }
         [TestMethod]
         public void SituazioneCardiaca_Test()

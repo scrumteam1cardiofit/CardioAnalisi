@@ -6,9 +6,6 @@ namespace CardioLibrary
 
     public class DataCardio
     {
-        public static readonly string DIRECTORY = Directory.GetCurrentDirectory();
-        public const string FILE = @"\dati_battiti_cardiaci_in_un_giorno.txt";
-
         public static string BattitiMinimiMassimiinTraining(int eta)
         {
             int freq_max_normale = 220 - eta;
@@ -22,18 +19,15 @@ namespace CardioLibrary
         {
             double corsa = 0.9 * km * peso;
             double camminata = 0.50 * km * peso;
-            string risultato = $"In corsa consumi: {corsa} KCal, In camminata consumi: {camminata} KCal.";
-            return risultato;
+            return $"In corsa consumi: {corsa} KCal, In camminata consumi: {camminata} KCal.";
         }
         public static float CalorieBruciateUomo(int f, float p, uint eta, float t)
         {
-            float caloriebruciate = (float)((eta * 0.2017) + (p * 0.199) + (f * 0.6309) - 55.0969);
-            return caloriebruciate;
+            return (float)(((eta * 0.2017) + (p * 0.199) + (f * 0.6309) - 55.0969) * t / 4.184);
         }
         public static float CalorieBruciateDonna(int f, float p, uint eta, float t)
         {
-            float caloriebruciate = (float)((eta * 0.074) + (p * 0.126) + (f * 0.4472) - 20.4022);
-            return caloriebruciate;
+            return (float)(((eta * 0.074) + (p * 0.126) + (f * 0.4472) - 20.4022) * t / 4.184);
         }
         public static string SituazioneCardiaca(int frequenza)
         {
@@ -52,6 +46,38 @@ namespace CardioLibrary
             else
             {
                 return "Tachicardia";
+            }
+        }
+        public static int MediaDailyBpm(string file)
+        {
+            List<int> battiti = new List<int>();
+            int c_battiti = 0;
+            using (StreamReader sr = new StreamReader(file))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    battiti.Add(int.Parse(line));
+                    c_battiti++;
+                }
+            }
+            int somma = 0;
+            for (int i = 0; i < battiti.Count; i++)
+            {
+                somma += battiti[i];
+            }
+            return somma / c_battiti;
+        }
+        public static bool RestBpm(string file)
+        {
+            int media = MediaDailyBpm(file);
+            if(media >= 60 && media <= 100)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
