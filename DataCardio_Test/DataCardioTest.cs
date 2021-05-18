@@ -10,7 +10,7 @@ namespace DataCardio_Test
     public class DataCardioTest
     {
         [TestMethod]
-        public void BattitiMinimiMassimiinTraining_Test()
+        public void BattitiMinimiMassimiinTraining_Test1()
         {
             int eta = 55;
             string resp = DataCardio.BattitiMinimiMassimiinTraining(eta);
@@ -18,7 +18,15 @@ namespace DataCardio_Test
             Assert.AreEqual(valore_aspettato, resp);
         }
         [TestMethod]
-        public void SpesaEnergeticaCorsaCamminata_Test()
+        public void BattitiMinimiMassimiinTraining_Test2()
+        {
+            int eta = 0;
+            string resp = DataCardio.BattitiMinimiMassimiinTraining(eta);
+            string valore_aspettato = "La tua frequenza cardiaca in un buon allenamento deve essere compresa tra 31.818181818 e 40.90909090.";
+            Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void SpesaEnergeticaCorsaCamminata_Test1()
         {
             double km = 10;
             double peso = 55;
@@ -27,7 +35,25 @@ namespace DataCardio_Test
             Assert.AreEqual(valore_aspettato, resp);
         }
         [TestMethod]
-        public void CalorieUomo_Test()
+        public void SpesaEnergeticaCorsaCamminata_Test2()
+        {
+            double km = 5;
+            double peso = 68;
+            string valore_aspettato = "In corsa consumi: 306 KCal, In camminata consumi: 170 KCal.";
+            string resp = DataCardio.CalorieConsumateCorsaCamminata(km, peso);
+            Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void SpesaEnergeticaCorsaCamminata_Test3()
+        {
+            double km = -20;
+            double peso = 75;
+            string valore_aspettato = "In corsa consumi: -1350 KCal, In camminata consumi: -750 KCal.";
+            string resp = DataCardio.CalorieConsumateCorsaCamminata(km, peso);
+            Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void CalorieUomo_Test1()
         {
             int f = 70;
             float p = 90;
@@ -38,7 +64,7 @@ namespace DataCardio_Test
             Assert.AreEqual(valore_aspettato, risp);
         }
         [TestMethod]
-        public void CalorieDonna_Test()
+        public void CalorieDonna_Test1()
         {
             int f = 75;
             float p = 65;
@@ -49,10 +75,26 @@ namespace DataCardio_Test
             Assert.AreEqual(valore_aspettato, risp);
         }
         [TestMethod]
-        public void SituazioneCardiaca_Test()
+        public void SituazioneCardiaca_Test1()
         {
             int frequenza = 0;
             string valore_aspettato = "valore inserito non valido!!";
+            string resp = DataCardio.SituazioneCardiaca(frequenza);
+            Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void SituazioneCardiaca_Test2()
+        {
+            int frequenza = 20;
+            string valore_aspettato = "Bradicardia";
+            string resp = DataCardio.SituazioneCardiaca(frequenza);
+            Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void SituazioneCardiaca_Test3()
+        {
+            int frequenza = 180;
+            string valore_aspettato = "Tachicardia";
             string resp = DataCardio.SituazioneCardiaca(frequenza);
             Assert.AreEqual(valore_aspettato, resp);
         }

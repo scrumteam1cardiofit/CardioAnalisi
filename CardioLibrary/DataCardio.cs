@@ -8,11 +8,11 @@ namespace CardioLibrary
     {
         public static string BattitiMinimiMassimiinTraining(int eta)
         {
-            int freq_max_normale = 220 - eta;
-            int minimo_perc = 70;
-            int max_perc = 90;
+            float freq_max_normale = 220 - eta;
+            float minimo_perc = 70;
+            float max_perc = 90;
             float freq_min_allenamento = (float)(minimo_perc / freq_max_normale) * 100;
-            float freq_max_allenamento = (max_perc / freq_max_normale) * 100;
+            float freq_max_allenamento = (float)(max_perc / freq_max_normale) * 100;
             return $"La tua frequenza cardiaca in un buon allenamento deve essere compresa tra {freq_min_allenamento} e {freq_max_allenamento}.";
         }
         public static string CalorieConsumateCorsaCamminata(double km, double peso)
