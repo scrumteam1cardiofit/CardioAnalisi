@@ -32,7 +32,7 @@ namespace CardioFitConsole
                 }
             }
             Console.WriteLine("Benvenuto in CardioFit!");
-            Console.WriteLine("Scegli quale funzione vuoi eseguire \n'Training bpm'--'Consumo Calorie'--'Calorie Uomo'--'Calorie Donne'--'Situazione Cardiaca'--'DailyBpm'--'RestBpm'--'VariabilityBpm'");
+            Console.WriteLine("Scegli quale funzione vuoi eseguire: \n'Training bpm'--'Consumo Calorie'--'Calorie Uomo'--'Calorie Donne'--'Situazione Cardiaca'--'DailyBpm'--'RestBpm'--'VariabilityBpm'");
             string scelta;
             scelta = Console.ReadLine();
             switch (scelta)
@@ -40,7 +40,7 @@ namespace CardioFitConsole
                 case "Training bpm":
                     Console.WriteLine("Digitare la tua eta: ");
                     int eta = int.Parse(Console.ReadLine());
-                    Console.WriteLine(DataCardio.BattitiMinimiMassimiinTraining(eta));
+                    Console.WriteLine(DataCardio.RangeBpmTraining(eta));
                     break;
 
                 case "Consumo Calorie":

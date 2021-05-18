@@ -6,14 +6,12 @@ namespace CardioLibrary
 
     public class DataCardio
     {
-        public static string BattitiMinimiMassimiinTraining(int eta)
+        public static string RangeBpmTraining(int eta)
         {
-            float freq_max_normale = 220 - eta;
-            float minimo_perc = 70;
-            float max_perc = 90;
-            float freq_min_allenamento = (float)(minimo_perc / freq_max_normale) * 100;
-            float freq_max_allenamento = (float)(max_perc / freq_max_normale) * 100;
-            return $"La tua frequenza cardiaca in un buon allenamento deve essere compresa tra {freq_min_allenamento} e {freq_max_allenamento}.";
+            float frequenza_max = 220 - eta;
+            float frequenza_70_perc = (frequenza_max * 70) / 100;
+            float frequenza_90_perc = (frequenza_max * 90) / 100;
+            return $"La tua frequenza cardiaca in un buon allenamento deve essere compresa tra {frequenza_70_perc} e {frequenza_90_perc}.";
         }
         public static string CalorieConsumateCorsaCamminata(double km, double peso)
         {
@@ -48,30 +46,13 @@ namespace CardioLibrary
                 return "Tachicardia";
             }
         }
-        public static int MediaDailyBpm(string file)
+        public static float MediaDailyBpm(int somma, int c_battiti)
         {
-            List<int> battiti = new List<int>();
-            int c_battiti = 0;
-            using (StreamReader sr = new StreamReader(file))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    battiti.Add(int.Parse(line));
-                    c_battiti++;
-                }
-            }
-            int somma = 0;
-            for (int i = 0; i < battiti.Count; i++)
-            {
-                somma += battiti[i];
-            }
             return somma / c_battiti;
         }
-        public static bool RestBpm(string file)
+        public static bool RestBpm(float media)
         {
-            int media = MediaDailyBpm(file);
-            if(media >= 60 && media <= 100)
+            if (media >= 60 && media <= 100)
             {
                 return true;
             }
@@ -79,6 +60,10 @@ namespace CardioLibrary
             {
                 return false;
             }
+        }
+        public static int Variabilita(int min, int max)
+        {
+            return max - min;
         }
     }
 }

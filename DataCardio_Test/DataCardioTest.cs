@@ -10,19 +10,19 @@ namespace DataCardio_Test
     public class DataCardioTest
     {
         [TestMethod]
-        public void BattitiMinimiMassimiinTraining_Test1()
+        public void RangeBpmTraining_Test1()
         {
             int eta = 55;
-            string resp = DataCardio.BattitiMinimiMassimiinTraining(eta);
-            string valore_aspettato = "La tua frequenza cardiaca in un buon allenamento deve essere compresa tra 42.42 e 54.54.";
+            string resp = DataCardio.RangeBpmTraining(eta);
+            string valore_aspettato = "La tua frequenza cardiaca in un buon allenamento deve essere compresa tra 115.5 e 148.5.";
             Assert.AreEqual(valore_aspettato, resp);
         }
         [TestMethod]
-        public void BattitiMinimiMassimiinTraining_Test2()
+        public void RangeBpmTraining_Test2()
         {
             int eta = 0;
-            string resp = DataCardio.BattitiMinimiMassimiinTraining(eta);
-            string valore_aspettato = "La tua frequenza cardiaca in un buon allenamento deve essere compresa tra 31.818181818 e 40.90909090.";
+            string resp = DataCardio.RangeBpmTraining(eta);
+            string valore_aspettato = "La tua frequenza cardiaca in un buon allenamento deve essere compresa tra 154 e 198.";
             Assert.AreEqual(valore_aspettato, resp);
         }
         [TestMethod]
@@ -97,6 +97,78 @@ namespace DataCardio_Test
             string valore_aspettato = "Tachicardia";
             string resp = DataCardio.SituazioneCardiaca(frequenza);
             Assert.AreEqual(valore_aspettato, resp);
+        }
+        [TestMethod]
+        public void MediaDailyBpm_Test1()
+        {
+            int somma = 4000, c_battiti = 50;
+            float valore_aspettato = 80;
+            float risp = DataCardio.MediaDailyBpm(somma, c_battiti);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void MediaDailyBpm_Test2()
+        {
+            int somma = -6000, c_battiti = 10;
+            float valore_aspettato = -600;
+            float risp = DataCardio.MediaDailyBpm(somma, c_battiti);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void MediaDailyBpm_Test3()
+        {
+            int somma = 0, c_battiti = 10;
+            float valore_aspettato = 0;
+            float risp = DataCardio.MediaDailyBpm(somma, c_battiti);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void RestBpm_Test1()
+        {
+            float media = 400;
+            bool valore_aspettato = false;
+            bool risp = DataCardio.RestBpm(media);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void RestBpm_Test2()
+        {
+            float media = 90;
+            bool valore_aspettato = true;
+            bool risp = DataCardio.RestBpm(media);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void RestBpm_Test3()
+        {
+            float media = -90;
+            bool valore_aspettato = false;
+            bool risp = DataCardio.RestBpm(media);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void Variabilita_Test1()
+        {
+            int min = 60, max = 110;
+            int valore_aspettato = 50;
+            int risp = DataCardio.Variabilita(min, max);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void Variabilita_Test2()
+        {
+            int min = -60, max = -110;
+            int valore_aspettato = -50;
+            int risp = DataCardio.Variabilita(min, max);
+            Assert.AreEqual(valore_aspettato, risp);
+        }
+        [TestMethod]
+        public void Variabilita_Test3()
+        {
+            int min = 0, max = 200;
+            int valore_aspettato = 200;
+            int risp = DataCardio.Variabilita(min, max);
+            Assert.AreEqual(valore_aspettato, risp);
         }
     }
 }
