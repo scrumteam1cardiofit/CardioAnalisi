@@ -19,11 +19,11 @@ namespace CardioLibrary
             double camminata = 0.50 * km * peso;
             return $"In corsa consumi: {corsa} KCal, In camminata consumi: {camminata} KCal.";
         }
-        public static float CalorieBruciateUomo(int f, float p, uint eta, float t)
+        public static float CalorieBruciateUomo(int f, float p, int eta, float t)
         {
             return (float)(((eta * 0.2017) + (p * 0.199) + (f * 0.6309) - 55.0969) * t / 4.184);
         }
-        public static float CalorieBruciateDonna(int f, float p, uint eta, float t)
+        public static float CalorieBruciateDonna(int f, float p, int eta, float t)
         {
             return (float)(((eta * 0.074) + (p * 0.126) + (f * 0.4472) - 20.4022) * t / 4.184);
         }
