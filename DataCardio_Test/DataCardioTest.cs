@@ -181,9 +181,9 @@ namespace DataCardio_Test
             Assert.AreEqual(valore_aspettato, resp);
         }
         [DataTestMethod]
-        [DataRow(-20, 75, "In corsa consumi: -1350 KCal, In camminata consumi: -750 KCal.")]
-        [DataRow(5, 68, "In corsa consumi: 306 KCal, In camminata consumi: 170 KCal.")]
-        [DataRow(10, 55, "In corsa consumi: 495 KCal, In camminata consumi: 275 KCal.")]
+        [DataRow(-20, 75, "In corsa consumi: -1350 Cal, In camminata consumi: -750 Cal.")]
+        [DataRow(5, 68, "In corsa consumi: 306 Cal, In camminata consumi: 170 Cal.")]
+        [DataRow(10, 55, "In corsa consumi: 495 Cal, In camminata consumi: 275 Cal.")]
         public void SpesaEnergeticaCorsaCamminata_Test(double km, double peso, string valore_aspettato)
         {
             string resp = DataCardio.CalorieConsumateCorsaCamminata(km, peso);
@@ -208,7 +208,7 @@ namespace DataCardio_Test
         [DataTestMethod]
         [DataRow(180, "Tachicardia")]
         [DataRow(20, "Bradicardia")]
-        [DataRow(0, "valore inserito non valido!!")]
+        [DataRow(0, "Valore inserito non valido!")]
         public void SituazioneCardiaca_Test(int frequenza, string valore_aspettato)
         {
             string resp = DataCardio.SituazioneCardiaca(frequenza);

@@ -5,14 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardioFitWPF"
         mc:Ignorable="d"
-        Title="CardioFit" Background="Red" Height="550" Width="900">
+        Title="CardioFit" Background="LightGreen" Height="680" Width="950">
     <Grid>
-        <Label x:Name="CardioFit" Content="CardioFit" HorizontalAlignment="Center" FontFamily="candara" VerticalAlignment="Top" FontSize="80" Background="#FFFBFB19" Margin="0,109,0,0"/>
-        <Button x:Name="btnBpmTraining" Content="Battiti Training" HorizontalAlignment="Left" Margin="26,297,0,0" VerticalAlignment="Top" FontSize="35" Click="btnBpmTraining_Click"/>
-        <Button x:Name="btnConsumoCalorie" Content="Consumo Calorie" HorizontalAlignment="Left" Margin="26,458,0,0" VerticalAlignment="Top" FontSize="35" Click="btnConsumoCalorie_Click"/>
-        <Button x:Name="btnSituazioneCardiaca" Content="Situazione Cardiaca" HorizontalAlignment="Left" Margin="560,297,0,0" VerticalAlignment="Top" FontSize="35" Click="btnSituazioneCardiaca_Click"/>
-        <Button x:Name="btnCalorieGenere" Content="Calorie Genere" HorizontalAlignment="Left" Margin="315,364,0,0" VerticalAlignment="Top" FontSize="35" RenderTransformOrigin="-0.097,0.452" Click="btnCalorieGenere_Click"/>
-        <Button x:Name="btnFunzioniSpeciali" Content="Funzioni Speciali" HorizontalAlignment="Left" Margin="560,458,0,0" VerticalAlignment="Top" FontSize="35" Click="btnFunzioniSpeciali_Click"/>
-
+        <Label x:Name="CardioFit" Content="CardioFit:" HorizontalAlignment="Left" FontFamily="candara" VerticalAlignment="Top" FontSize="80" Background="#FFFBFB19" Margin="280,10,0,0" Height="93"/>
+        <Label x:Name="lblFunzione" Content="Scegli la funzione." FontSize="16" HorizontalAlignment="Left" Margin="30,429,0,0" VerticalAlignment="Top" Height="41" Width="136"/>
+        <Button x:Name="btnMostra" Content="Mostra" FontSize="20" HorizontalAlignment="Left" Margin="387,526,0,0" VerticalAlignment="Top" Height="40" Width="99" Click="btnMostra_Click"/>
+        <Label Content="Inserire km percorsi:" FontSize="16" HorizontalAlignment="Left" Margin="31,128,0,0" VerticalAlignment="Top" Height="39" Width="154"/>
+        <Label Content="Inserisci il tuo peso:" FontSize="16" HorizontalAlignment="Left" Margin="32,203,0,0" VerticalAlignment="Top" Width="153" Height="30"/>
+        <Label Content="Inserisci la tua età:" FontSize="16" HorizontalAlignment="Left" Margin="31,276,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Inserisci tempo di allenamento(min):" HorizontalAlignment="Left" Margin="31,341,0,0" VerticalAlignment="Top" Width="295" FontSize="18"/>
+        <Label Content="Inserisci la tua frequeza cardiaca:" FontSize="16" HorizontalAlignment="Left" Margin="569,137,0,0" VerticalAlignment="Top" Width="244"/>
+        <Button x:Name="btnGeneraFrequenza" Content="Genera frequenza" HorizontalAlignment="Left" Margin="792,186,0,0" VerticalAlignment="Top" Width="104" Height="34" Click="btnGeneraFrequenza_Click"/>
+        <TextBox x:Name="txbFrequenzaCardiaca" HorizontalAlignment="Left" Margin="611,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <ComboBox x:Name="cbxFunzione" HorizontalAlignment="Left" Margin="225,439,0,0" VerticalAlignment="Top" Width="211" FontSize="14" Loaded="cbxFunzione_Loaded"/>
+        <TextBox x:Name="txbTempoMin" HorizontalAlignment="Left" Margin="369,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="txbPeso" HorizontalAlignment="Left" Margin="225,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="txbEta" HorizontalAlignment="Left" Margin="225,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
+        <TextBox x:Name="txbKm" HorizontalAlignment="Left" Margin="225,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="15"/>
     </Grid>
 </Window>

@@ -8,6 +8,7 @@ namespace CardioLibrary
     {
         public static string RangeBpmTraining(int eta)
         {
+            eta = Math.Abs(eta);
             float frequenza_max = 220 - eta;
             float frequenza_70_perc = (frequenza_max * 70) / 100;
             float frequenza_90_perc = (frequenza_max * 90) / 100;
@@ -17,7 +18,7 @@ namespace CardioLibrary
         {
             double corsa = 0.9 * km * peso;
             double camminata = 0.50 * km * peso;
-            return $"In corsa consumi: {corsa} KCal, In camminata consumi: {camminata} KCal.";
+            return $"In corsa consumi: {corsa} Cal, In camminata consumi: {camminata} Cal.";
         }
         public static float CalorieBruciateUomo(int f, float p, int eta, float t)
         {
@@ -64,6 +65,32 @@ namespace CardioLibrary
         public static int Variabilita(int min, int max)
         {
             return max - min;
+        }
+        public static List<int> LetturaScritturaFILE(string DIRECTORY, string FILE)
+        {
+            int i = 0;
+            Random r = new Random();
+            int n;
+            using (StreamWriter sw_battiti = new StreamWriter(FILE))
+            {
+                while (i < 24)
+                {
+                    sw_battiti.WriteLine(n = r.Next(30, 170));
+                    i++;
+                }
+                sw_battiti.Flush();
+            }
+            List<int> battiti = new List<int>();
+            using (StreamReader sr_battiti = new StreamReader(FILE))
+            {
+                string line;
+                while ((line = sr_battiti.ReadLine()) != null)
+                {
+                    battiti.Add(int.Parse(line));
+                }
+            }
+            battiti.Sort();
+            return battiti;
         }
     }
 }
