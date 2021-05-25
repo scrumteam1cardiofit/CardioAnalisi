@@ -31,7 +31,7 @@ namespace CardioLibrary
         {
             if (frequenza < 5)
             {
-                return "valore inserito non valido!!";
+                return "Valore inserito non valido!";
             }
             else if (frequenza < 60 && frequenza >= 5)
             {

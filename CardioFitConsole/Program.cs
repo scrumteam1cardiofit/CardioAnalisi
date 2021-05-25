@@ -33,7 +33,7 @@ namespace CardioFitConsole
             }
             battiti.Sort();
             Console.WriteLine("Benvenuto in CardioFit!");
-            Console.WriteLine("Digita 1 per continuare o 0 per chiudere la Console: ");
+            Console.WriteLine("Digita '1' per continuare o '0' per chiudere la Console: ");
             string continua = Console.ReadLine();
             while (continua == "1")
             {
@@ -47,7 +47,10 @@ namespace CardioFitConsole
                         {
                             Console.WriteLine("Digitare la tua eta: ");
                             int eta = int.Parse(Console.ReadLine());
-                            Console.WriteLine(DataCardio.RangeBpmTraining(eta));
+                            if (eta > 0 && eta < 140)
+                                Console.WriteLine(DataCardio.RangeBpmTraining(eta));
+                            else
+                                Console.WriteLine("Eta non valida!");
                         }
                         catch (Exception ex)
                         {
@@ -62,7 +65,10 @@ namespace CardioFitConsole
                             double km = double.Parse(Console.ReadLine());
                             Console.WriteLine("Inserisci il tuo peso(kg): ");
                             double peso = double.Parse(Console.ReadLine());
-                            Console.WriteLine(DataCardio.CalorieConsumateCorsaCamminata(km, peso));
+                            if (km >= 0 && peso > 15)
+                                Console.WriteLine(DataCardio.CalorieConsumateCorsaCamminata(km, peso));
+                            else
+                                Console.WriteLine("Valori inseriti non validi!");
                         }
                         catch (Exception ex)
                         {
@@ -77,10 +83,14 @@ namespace CardioFitConsole
                             int frequenza_cardiaca_uomo = int.Parse(Console.ReadLine());
                             Console.WriteLine("Inserisci il tuo peso(kg): ");
                             float peso_uomo = float.Parse(Console.ReadLine());
-                            Console.WriteLine("Inserisci la tua eta: ");
-                            uint eta_calorie_uomo = uint.Parse(Console.ReadLine());
+                            Console.WriteLine("Inserisci la tua eta(y): ");
+                            int eta_calorie_uomo = int.Parse(Console.ReadLine());
                             Console.WriteLine("Inserisci il tempo di allenamento (minuti): ");
                             int tempo_uomo = int.Parse(Console.ReadLine());
+                            if (frequenza_cardiaca_uomo > 0 && peso_uomo > 15 && eta_calorie_uomo > 0 && tempo_uomo > 0)
+                                Console.WriteLine($"Hai bruciato: {DataCardio.CalorieBruciateUomo(frequenza_cardiaca_uomo, peso_uomo, eta_calorie_uomo, tempo_uomo)} calorie!");
+                            else
+                                Console.WriteLine("Valori inseriti non validi!");
                         }
                         catch (Exception ex)
                         {
@@ -91,14 +101,18 @@ namespace CardioFitConsole
                     case "calorie donna":
                         try
                         {
-                            Console.WriteLine("Inserisci la tua frequenza cardiaca: ");
+                            Console.WriteLine("Inserisci la tua frequenza cardiaca(bpm): ");
                             int frequenza_cardiaca_donna = int.Parse(Console.ReadLine());
-                            Console.WriteLine("Inserisci il tuo peso: ");
+                            Console.WriteLine("Inserisci il tuo peso(kg): ");
                             float peso_donna = float.Parse(Console.ReadLine());
-                            Console.WriteLine("Inserisci la tua eta: ");
-                            uint eta_calorie_donna = uint.Parse(Console.ReadLine());
-                            Console.WriteLine("Inserisci il tempo di allenamento in minuti: ");
+                            Console.WriteLine("Inserisci la tua eta(y): ");
+                            int eta_calorie_donna = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Inserisci il tempo di allenamento(minuti): ");
                             int tempo_donna = int.Parse(Console.ReadLine());
+                            if (frequenza_cardiaca_donna > 0 && peso_donna > 15 && eta_calorie_donna > 0 && tempo_donna > 0)
+                                Console.WriteLine($"Hai bruciato: {DataCardio.CalorieBruciateDonna(frequenza_cardiaca_donna, peso_donna, eta_calorie_donna, tempo_donna)} calorie!");
+                            else
+                                Console.WriteLine("Valori inseriti non validi!");
                         }
                         catch (Exception ex)
                         {
@@ -111,7 +125,7 @@ namespace CardioFitConsole
                         {
                             Console.WriteLine("Inserisci la tua frequenza cardiaca: ");
                             int frequenza_cardiaca = int.Parse(Console.ReadLine());
-                            string situazione_cardiaca = DataCardio.SituazioneCardiaca(frequenza_cardiaca);
+                            Console.WriteLine(DataCardio.SituazioneCardiaca(frequenza_cardiaca));
                         }
                         catch (Exception ex)
                         {
@@ -166,7 +180,7 @@ namespace CardioFitConsole
                     case "variabilitybpm":
                         try
                         {
-                            Console.WriteLine($"La variabilità dei tuoi battiti è: {battiti[battiti.Count] - battiti[0]}");
+                            Console.WriteLine($"La variabilità dei tuoi battiti è: {battiti[battiti.Count - 1] - battiti[0]}");
                         }
                         catch (Exception ex)
                         {
@@ -179,7 +193,7 @@ namespace CardioFitConsole
                         break;
                 }
                 Console.WriteLine();
-                Console.WriteLine("Digita '1' per usare un'altra funzione o 0 per chiudere la Console: ");
+                Console.WriteLine("Digita '1' per usare un'altra funzione o '0' per chiudere la Console: ");
                 continua = Console.ReadLine();
             }
         }
